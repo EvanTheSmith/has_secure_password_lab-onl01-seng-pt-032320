@@ -1,9 +1,10 @@
 class UsersController < ApplicationController
   def new
+    @user = User.new
   end
 
   def create # Sign Up
-   redirect_to signup_path if params[:user][:password] != params[:user][:password_confirmation]
+   redirect_to new_user_path if params[:user][:password] != params[:user][:password_confirmation]
    @user = User.create(user_params)
    session[:user_id] = @user.id
   end

@@ -1,7 +1,11 @@
+<% if User.all == [] %>
+<h3> There are no users. <a href="/users/new">Sign up here</a> </h3>
+<% else %>
 <h3> Log in below </h3>
+<% end %>
 
 <%= form_for :user, url: '/login' do |f| %>
-    <%= f.label :name %>:
+    <%= f.label :name %>
     <%= f.text_field :name %><br />
   
     <%= f.label :password %>:
@@ -10,5 +14,5 @@
     <%= f.label :password_confirmation %>:
     <%= f.password_field :password_confirmation %><br />
   
-    <%= f.submit %>
+    <%= f.submit "Login" %>
 <% end %>
