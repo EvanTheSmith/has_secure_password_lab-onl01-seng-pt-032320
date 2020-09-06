@@ -1,10 +1,11 @@
 Rails.application.routes.draw do
+
+  get '/signup' => 'users#new'        # Sign Up Form
+  post '/signup' => 'users#create'    # Sign Up Post Path
+
+  post '/login' => 'sessions#create'  # Log In Form
+  post '/login' => 'sessions#create'  # Log In Post Path
+
   root 'welcome#home'
-
-  # get '/signup', to: 'users#new'
-  # post '/signup', to: 'users#create'
-  resources :users, only: [:new, :create]
-
-  get '/login', to: 'sessions#new'
-  post '/login', to: 'sessions#create'
+  
 end
